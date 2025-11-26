@@ -1,0 +1,41 @@
+1)	Node.js-t telepítettem.
+
+2) létrehoztam az app.js-t és beleírtam a következőket.
+
+3) a package.json-ban a scripts részt átírtam.
+
+4) Telepítettem a GIT Windows applikációt.
+
+5) Publikálok a Gitre:	git init
+			git add .
+			
+
+___________________________________________________________
+Devops_v2 mappa VSC-ben Terminálba futtattam:
+
+npm init -y
+
+npm install express
+
+___________________________________________________________
+
+app.js:
+
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello DevOps!");
+});
+
+app.listen(8080, () => {
+  console.log("App running on http://localhost:8080");
+});
+___________________________________________________________
+package.json:
+
+"scripts": {
+  "start": "node app.js",
+  "build": "echo Build completed"
+}
+___________________________________________________________
