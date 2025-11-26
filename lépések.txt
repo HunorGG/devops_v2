@@ -8,7 +8,43 @@
 
 5) Publikálok a Gitre:	git init
 			git add .
-			
+			git commit -m "Initialize Node.js project structure"
+	meg kellett adnom a nevemet és emailcímemet:
+			git config --global user.name "Hunor"
+			git config --global user.email "vrshunor@gmail.com"
+			git branch -M main
+			git remote add origin https://github.com/HunorGG/devops_v2.git (bejelentkeztem az asztali verzión is)
+			git push -u origin main (megjelent minden a GitHubon)
+
+6) Modosítottam az app.js fileon.
+
+7) újból feltoltam a fileokat a GitHubra.
+			git add app.js
+			git commit -m "Új üzenet hozzáadása a feature branch-ben"
+			git push -u origin feature/uj-uzenet
+
+8) Pull Request létrehozása GitHubon és merge a main branch-be.
+
+9) Létrehoztam a dockerfile-t
+
+10) A dockert build teszteltem -> siker
+			docker build -t devops_app:v1 .
+
+11) Futtatom a konténert
+			docker run -p 8080:8080 devops_app:v1
+
+12) http://localhost:8080 címen elérem az oldalt és látszok a "Hello World! Sose gondoltam volna, hogy DEVOPS-ozok, és láss csodát! :)" szöveg.
+
+13) Létrehoztam egy .devcontainer mappát és benne egy devcontainer.json és egy Dockerfile-t
+
+14) Telepítettem a dev container bővítményt a visual studioba - restart
+
+15) Ezt követően Ctrl+Shift+P dev container: reopen in container..
+
+16) Megnyílt minden probléma nélkül a DevContainerben.
+
+17) Megírtam a README-t. (TXTben szebben nézett ki)
+
 
 ___________________________________________________________
 Devops_v2 mappa VSC-ben Terminálba futtattam:
@@ -39,3 +75,35 @@ package.json:
   "build": "echo Build completed"
 }
 ___________________________________________________________
+Dockerfile:
+
+FROM node:18
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["npm", "start"]
+___________________________________________________________
+devcontainer.json:
+{
+  "name": "Hello DevOps Container",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [8080],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}
+___________________________________________________________
+devcontainer->Dockerfile:
+
+FROM node:18
+WORKDIR /app
+___________________________________________________________
+
+
