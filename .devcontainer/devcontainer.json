@@ -1,0 +1,7 @@
+{
+  "name": "Hello DevOps Container",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [8080],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}
