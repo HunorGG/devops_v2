@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello DevOps!");
+  res.send("Hello World! Sose gondoltam volna, hogy DEVOPS-ozok, és láss csodát! :)");
 });
 
 app.listen(8080, () => {
